@@ -14,7 +14,7 @@ export class FilterPanel extends Component {
                 <small><strong>PRICE</strong></small>
                 <div className="form-row align-items-center mt-2">
                     <select className="border border-muted input-sm col-4" onChange={(e)=>this.props.getMinPrice(e.target.value)}>
-                        <option value={1000}>Min</option>
+                        <option value={0}>Min</option>
                         <option value={1000}>1000</option>
                         <option value={2000}>2000</option>
                         <option value={3000}>3000</option>
@@ -22,7 +22,7 @@ export class FilterPanel extends Component {
                     </select>
                     <span className="col-2">to</span>
                     <select className="border border-muted input-sm col-4" onChange={(e)=>this.props.getMaxPrice(e.target.value)}>
-                        <option value={4000}>Max</option>
+                        <option value={100000}>Max</option>
                         <option value={1000}>1000</option>
                         <option value={2000}>2000</option>
                         <option value={3000}>3000</option>

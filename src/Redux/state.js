@@ -3,8 +3,8 @@ let initialState = {
     filterBrand : "",
     filterProducts : [],
     filterColor: [],
-    filterMinPrice: 1000,
-    filterMaxPrice: 4000,
+    filterMinPrice: 0,
+    filterMaxPrice: 100000,
     cart: [],
     cartItems: 0,
     cartTotal: 0,
@@ -17,8 +17,8 @@ function filter(newState){
     let newFiltered = newState.products.filter((e,i) => {
         if((e.productBrand.search(newState.filterBrand) >= 0 || newState.filterBrand === "") && 
         (newState.filterColor.includes(e.productColor) || newState.filterColor.length === 0) &&
-        (e.productDiscountPrice >= newState.filterMinPrice || newState.filterMinPrice === 1000) &&
-        (e.productDiscountPrice <= newState.filterMaxPrice || newState.filterMaxPrice === 1000000)                
+        (e.productDiscountPrice >= newState.filterMinPrice || newState.filterMinPrice === 0) &&
+        (e.productDiscountPrice <= newState.filterMaxPrice || newState.filterMaxPrice === 100000)                
         ){
             return true            
         }
