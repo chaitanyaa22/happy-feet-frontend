@@ -19,13 +19,19 @@ export class Cart extends Component {
                         ? <Redirect to="/" />
                         : ""
                 }
-                <span className="font-weight-lighter mx-3 h3">Your Cart</span>
-                <div className="float-lg-right">
-                    <strong className="px-3">Items: {this.props.cartItems}</strong>
-                    <strong className="px-3">Total: <i className="fa fa-inr" aria-hidden="true"></i> {this.props.cartTotal}</strong>
-                    <button className="btn btn-warning" data-toggle="modal" data-target="#checkoutModal"
-                        disabled={this.props.cart.length === 0}
-                    >Checkout</button>
+                <div className="row justify-content-around text-center">
+                    <div className="col-auto">
+                        <strong className="">Your Cart</strong>
+                    </div>
+                    <div className="col-auto">
+                        <strong className="">Total: ₹{this.props.cartTotal}</strong>
+                    </div>
+                    <div className="col-auto">
+                        <button className="btn btn-warning btn-sm rounded" data-toggle="modal" data-target="#checkoutModal"
+                            disabled={this.props.cart.length === 0}
+                        >Checkout</button>
+                    </div>
+                    
                 </div>
                 <hr />
                 <div className="row justify-content-center">
@@ -34,14 +40,14 @@ export class Cart extends Component {
                         : ""
                     }
                     {this.props.cart.map((e, i) => {
-                        return <div class="card mb-3 m-3 px-3 pt-3" style={{ "max-width": "640px" }}>
-                            <div class="row no-gutters">
-                                <div class="col-md-4">
-                                    <img src={e.productImage} class="card-img" alt="..." />
+                        return <div className="card mb-3 m-3 px-3 pt-3" key={i} style={{ "maxWidth": "640px" }}>
+                            <div className="row no-gutters">
+                                <div className="col-md-4">
+                                    <img src={e.productImage} className="card-img" alt="..." />
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{e.productName}</h5>
+                                <div className="col-md-8">
+                                    <div className="card-body">
+                                        <h5 className="card-title">{e.productName}</h5>
                                         <span className="badge bg-success rounded text-light">{e.productRating} <small><i className="fa fa-star" aria-hidden="true"></i></small></span>
                                         <div className="mt-2">
                                             <span className="pr-2"><strong><i className="fa fa-inr" aria-hidden="true"></i> {e.productDiscountPrice}</strong></span>
@@ -88,7 +94,7 @@ export class Cart extends Component {
                                     </div>
                                         <div className="col-8">
                                             <input type="number" className="border-0 w-25" placeholder="MM" maxLength={2} minLength={2} onChange={(e) => this.setState({ month: Number(e.target.value) })} required />
-                                            <input type="number" className="border-0 w-25" placeholder="WW" maxLength={2} minLength={2} onChange={(e) => this.setState({ year: Number(e.target.value) })} required />
+                                            <input type="number" className="border-0 w-25" placeholder="YY" maxLength={2} minLength={2} onChange={(e) => this.setState({ year: Number(e.target.value) })} required />
                                         </div>
                                     </div>
                                     <div className="row mt-2">
