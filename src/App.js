@@ -1,26 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import FilterPanel from './Components/FilterPanel'
+import { BrowserRouter, Route } from 'react-router-dom'
+import Products from './Components/Products'
+import Navbar from './Components/Navbar'
+import Cart from './Components/Cart'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div>
+          <Navbar />
+        </div>
+        <Route path="/" exact>
+          <div className="col">
+            <div className="row">
+              <div className="col-lg-2 col-sm-12">
+                <FilterPanel />
+              </div>
+              <div className="col-lg-10 col-sm-12">
+                <Products />
+              </div>
+            </div>
+          </div>
+        </Route>
+        <Route path="/cart" exact>
+          <Cart/>
+        </Route>
+
+      </BrowserRouter>
+    )
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {}
+
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {}
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
+
