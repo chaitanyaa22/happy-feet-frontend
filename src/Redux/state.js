@@ -64,7 +64,7 @@ export default function appReducer(state=initialState, action){
             newState.cart = [...newState.cart, action.payload]
             return newState
         case 'order':
-            newState.orders = newState.orders.concat(action.payload)
+            newState.orders = action.payload.concat(newState.orders)
             newState.cart = []
             newState.cartItems = 0
             newState.cartTotal = 0
