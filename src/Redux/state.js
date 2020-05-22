@@ -7,8 +7,11 @@ let initialState = {
     filterMaxPrice: 1000000,
     cart: [],
     cartItems: 0,
-    cartTotal: 0
+    cartTotal: 0,
+    orders : [],
+    getHome : false
 }
+
 
 function filter(newState){
     let newFiltered = newState.products.filter((e,i) => {
@@ -59,6 +62,16 @@ export default function appReducer(state=initialState, action){
             newState.cartItems += 1
             newState.cartTotal += action.payload.productDiscountPrice
             newState.cart = [...newState.cart, action.payload]
+            return newState
+        case 'order':
+            newState.orders = newState.orders.concat(action.payload)
+            newState.cart = []
+            newState.cartItems = 0
+            newState.cartTotal = 0
+            newState.getHome = true
+            return newState
+        case 'got_home':
+            newState.getHome = false
             return newState
     }
 

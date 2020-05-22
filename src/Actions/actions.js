@@ -49,3 +49,16 @@ export const buy = (product) => {
         payload: product
     }
 }
+
+export const getOrder = (cart) => {
+    return {
+        type: 'order',
+        payload: cart
+    }
+}
+
+export const gotHome = () => {
+    return {
+        type: 'got_home'
+    }
+}

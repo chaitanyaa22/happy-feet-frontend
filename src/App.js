@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import {bindActionCreators} from 'redux'
 import FilterPanel from './Components/FilterPanel'
 import { BrowserRouter, Route } from 'react-router-dom'
 import Products from './Components/Products'
 import Navbar from './Components/Navbar'
 import Cart from './Components/Cart'
+import Orders from './Components/Orders'
 
 export class App extends Component {
+
   render() {
     return (
       <BrowserRouter>
@@ -28,6 +31,9 @@ export class App extends Component {
         <Route path="/cart" exact>
           <Cart/>
         </Route>
+        <Route path="/orders" exact>
+          <Orders/>          
+        </Route>
 
       </BrowserRouter>
     )
@@ -35,12 +41,12 @@ export class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {}
+  return { }
 
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {}
+  return bindActionCreators({},dispatch)
 
 }
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { getProducts, buy } from '../Actions/actions'
+import { getProducts, buy, gotHome } from '../Actions/actions'
 
 export class Products extends Component {
     state = {
@@ -9,6 +9,7 @@ export class Products extends Component {
     }
     componentDidMount() {
         this.props.getProducts()
+        this.props.gotHome()
     }
     componentDidUpdate = (prevProps, prevState) => {
         if (this.props.filterProducts !== prevProps.filterProducts) {
@@ -54,10 +55,10 @@ export class Products extends Component {
         return (
             <div>
                 <div className="mt-3">
-                    <span className="px-2"><strong>Sort by: </strong></span>
-                    <span className="px-2" onClick={() => this.relevant()}><strong>Relevance</strong></span>
-                    <span className="px-2" onClick={() => this.ascendingSort()}><strong>Price: Low to High <i className="fa fa-long-arrow-down" aria-hidden="true"></i></strong></span>
-                    <span className="px-2" onClick={() => this.descendingSort()}><strong>Price: High to Low <i className="fa fa-long-arrow-up" aria-hidden="true"></i></strong></span>
+                    <span className="px-2 btn btn-sm"><strong>Sort by: </strong></span>
+                    <span className="px-2 btn btn-sm" onClick={() => this.relevant()}><strong>Relevance</strong></span>
+                    <span className="px-2 btn btn-sm" onClick={() => this.ascendingSort()}><strong>Price: Low to High <i className="fa fa-long-arrow-down" aria-hidden="true"></i></strong></span>
+                    <span className="px-2 btn btn-sm" onClick={() => this.descendingSort()}><strong>Price: High to Low <i className="fa fa-long-arrow-up" aria-hidden="true"></i></strong></span>
                 </div>
                 <hr />
                 <div className="row">
@@ -85,16 +86,16 @@ export class Products extends Component {
 }
 
 const mapStateToProps = (state) => {
-    const { products, filterProducts } = state
+    const { products, filterProducts, } = state
     return {
         products,
-        filterProducts
+        filterProducts,
     }
 
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ getProducts, buy }, dispatch)
+    return bindActionCreators({ getProducts, buy, gotHome}, dispatch)
 
 }
 
