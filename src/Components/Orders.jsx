@@ -15,10 +15,10 @@ export class Orders extends Component {
                     {this.props.orders.map((e, i) => {
                         return <div className="card mb-3 col-lg-8 col-xs-12" key={i}>
                             <div className="row no-gutters">
-                                <div className="col-md-4 px-5 pt-5 pb-3">
+                                <div className="col-lg-4 col-xs-12 px-md-5 pt-5 pb-3">
                                     <img src={e.productImage} className="card-img" alt="..." />
                                 </div>
-                                <div className="col-md-8">
+                                <div className="col-lg-8 col-xs-12">
                                     <div className="card-body">
                                         <h5 className="card-title">{e.productName}</h5>
                                     </div>
@@ -27,11 +27,11 @@ export class Orders extends Component {
                                     <span>
                                         <span className="text-muted px-3">Color: {e.productColor}</span>
                                     </span>
-                                    <span className="float-right">
-                                        <span className="pr-2"><strong><i className="fa fa-inr" aria-hidden="true"></i> {e.productDiscountPrice}</strong></span>
+                                    <div className="float-lg-right">
+                                        <span className="pr-2 "><strong><i className="fa fa-inr" aria-hidden="true"></i> {e.productDiscountPrice}</strong></span>
                                         <span className="text-muted pr-2"><strike><i className="fa fa-inr" aria-hidden="true"></i> {e.productOriginalPrice}</strike></span>
-                                        <span className="text-success">{((e.productOriginalPrice - e.productDiscountPrice) / e.productOriginalPrice).toFixed(2) * 100}% off</span>
-                                    </span>
+                                        <span className="text-success ">{((e.productOriginalPrice - e.productDiscountPrice) / e.productOriginalPrice).toFixed(2) * 100}% off</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
